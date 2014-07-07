@@ -1,0 +1,108 @@
+{% extends 'database_app/base.html' %}
+{% block content_area %}
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Detail View <b>TMN ID = {{ tmn.id }}</b>
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Actions
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                asdf
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>Primary Key</td>
+                                    <td>{{ tmn.pk }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Structure</td>
+                                    <td>{{ tmn.Structure }}</td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Metal</td>
+                                    <td>{{ tmn.Metal }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Lattice Constant</td>
+                                    <td>{{ tmn.Lattice_Constant }}</td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Bulk Modulus</td>
+                                    <td>{{ tmn.Bulk_Modulus }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>C11 elastic constant</td>
+                                    <td>{{ tmn.C11_elastic_constant }}</td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>C12 elastic constant</td>
+                                    <td>{{ tmn.C12_elastic_constant }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>C44 elastic constant</td>
+                                    <td>{{ tmn.C44_elastic_constant }}</td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Experimental</td>
+                                    <td>{{ tmn.Experimental }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Potential</td>
+                                    <td>{{ tmn.Potential }}</td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Wave Function</td>
+                                    <td>{{ tmn.Wave_function }}</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Code Package</td>
+                                    <td>{{ tmn.Code_Package }}</td>
+                                <tr class="odd gradeX">
+                                    <td>Reference DOI</td>
+                                    <td><a href="{{ tmn.Link }}">{{ tmn.Reference_DOI }}</a></td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Verified</td>
+                                    <td>{{ tmn.Verified }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="{% url 'database:structure_update' tmn.pk %}" class="btn btn-primary"> Update </a>
+                    <a href="{% url 'database:structure_delete' tmn.pk %}" class="btn btn-danger"> Delete </a>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    asdfasdf
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    asdf
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-2 -->
+    </div>
+    <!-- /.row -->
+{% endblock %}

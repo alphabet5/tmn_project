@@ -1,0 +1,60 @@
+{% extends 'database_app/base.html' %}
+{% block content_area %}
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <h2><b>Chart</b></h2>
+            <div class="panel-heading">
+
+                <div class="pull-right">
+
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                {{ image }}
+            </div>
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-2">
+            <h2><b>Filter Options</b></h2>
+            <form action="" method="get" role="form">
+                {{ filter.form.as_p }}
+            <input type="submit" value="Filter"/>
+            </form>
+        </div>
+        <div class="col-lg-3">
+            <h2><b>Chart Options</b></h2>
+            <form action="" method="get">
+            <div class="form-group">
+                <label>Chart type</label>
+                <select class="form-control" id="element_1" name="element_1">
+                    <option value="bar_chart">Bar Chart</option>
+                    <option value="line_chart">Line Chart</option>
+                    <option value="pie_chart">Pie Chart</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Parameter to graph</label>
+                <select class="form-control" id="element_1" name="element_1">
+                    <option value="lattice_constant">Lattice Constant</option>
+                    <option value="bulk_modulus">Bulk Modulus</option>
+                    <option value="c11_elastic_constant">C11 elastic constant</option>
+                    <option value="c12_elastic_constant">C12 elastic constant</option>
+                    <option value="c44_elastic_constant">C44 elastic constant</option>
+                    <option value="group">Group</option>
+                    <option value="period">Period</option>
+                </select>
+            </div>
+            <input id="element_1" class="button_text" type="submit" name="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+    {% load render_table from django_tables2 %}
+     <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+    {% render_table table %}
+    </div>
+    <!-- /.row -->
+{% endblock %}
