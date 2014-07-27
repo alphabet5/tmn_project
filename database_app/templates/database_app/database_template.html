@@ -1,0 +1,60 @@
+{% extends 'database_app/base_template.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Ceramics Database</title>
+{% endblock %}
+
+{% block navbar %}
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="{% url 'all:home' %}">Home</a></li>
+        <li class="active"><a href="{% url 'all:database' %}">Database</a></li>
+        <li><a href="{% url 'all:document' %}">Document</a></li>
+        <li><a href="{% url 'all:about' %}">About</a></li>
+    </ul>
+{% endblock %}
+
+{% block page_title %}
+    <div class="navbar-brand">Database</div>
+{% endblock %}
+
+{% block first_row %}
+    <script>
+    $(document).ready(function(){
+    $('#target').hide();
+    });
+    </script>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading button container-fluid" align="right" onclick="$('#target').toggle();"><div class="pull-left" style="font-size:medium">Graphing Functionality</div>Click to draw figure.<span class="glyphicon glyphicon-chevron-down"></span></div>
+            <div class="panel-body container" id="target">
+                <div class="col-lg-4 pull-left">
+                    <h3>Example matplotlib graph.</h3>
+                    <img src="{% static 'matplotlib_offset_demo.png' %}">
+                </div>
+                <div class="col-lg-4 pull-right">
+                    <h3>Form for graphing elements.</h3>
+                    <div>
+                        Insert form here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" align="center">
+        <div class="col-lg-2 pull-left">
+            {% load crispy_forms_tags %}
+            <form action="{% url 'all:database' %}" method="get">
+                {% crispy form %}
+            </form>
+        </div>
+        <div class="col-lg-8">
+            <form action="" >
+                {% load render_table from django_tables2 %}
+                <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+                {% render_table table %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

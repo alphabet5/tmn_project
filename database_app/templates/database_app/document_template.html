@@ -1,0 +1,26 @@
+{% extends 'database_app/base_template.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block title %}
+    <title>Ceramics Database</title>
+{% endblock %}
+
+{%  block navbar %}
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="{% url 'all:home' %}">Home</a></li>
+        <li><a href="{% url 'all:database' %}">Database</a></li>
+        <li class="active"><a href="{% url 'all:document' %}">Document</a></li>
+        <li><a href="{% url 'all:about' %}">About</a></li>
+    </ul>
+{% endblock %}
+
+{% block page_title %}
+    <div class="navbar-brand">Documentation</div>
+{% endblock %}
+
+{% block first_row %}
+    <div class="container">
+    <script src="{% static "js/csi.min.js" %}"></script>
+    <div data-include="{% static "Final%report.htm" %}"></div>
+    </div>
+{% endblock %}

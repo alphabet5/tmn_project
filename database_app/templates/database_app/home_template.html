@@ -1,0 +1,36 @@
+{% extends 'database_app/base_template.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Ceramics Database</title>
+{% endblock %}
+
+{%  block navbar %}
+        <li class="active"><a href="{% url 'all:home' %}">Home</a></li>
+        <li><a href="{% url 'all:database' %}">Database</a></li>
+        <li><a href="{% url 'all:document' %}">Document</a></li>
+        <li><a href="{% url 'all:about' %}">About</a></li>
+{% endblock %}
+
+{% block page_title %}
+    <a class="navbar-brand">Home</a>
+{% endblock %}
+
+{% block first_row %}
+    <div class="jumbotron container" id="target2" onclick="$('#target2').toggle();">
+        <h1>Hello, welcome!</h1>
+        <p >This is a database containing information on transition metal nitrides. This first page is created to allow you
+        to filter entries before viewing the database. Please select the itemsyou wish to view or click
+        <a class="btn btn-default" href="{% url 'all:database' %}">here</a> to go straight to the database. For more
+        information go to the about section located <a class="btn btn-default" href="{% url 'all:about' %}">here</a>. Click
+        to make me hide.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <form action="{% url 'all:database' %}" method="get">
+                    {% crispy form %}
+                </form>
+            </div>
+        </div><!-- /.row -->
+    </div>
+{% endblock %}

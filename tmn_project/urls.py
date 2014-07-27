@@ -9,9 +9,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^database/', include('database_app.urls', namespace='database')),
-    url(r'^$', include('database_app.urls', namespace='redirect_database')),
-    url(r'^about/$', include('database_app.urls', namespace='about'))
+    url(r'^', include('database_app.urls', namespace='all')),
+
 )
 
 #urlpatterns += staticfiles_urlpatterns()

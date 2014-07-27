@@ -1,0 +1,35 @@
+{% extends 'database_app/base_template.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Ceramics Database</title>
+{% endblock %}
+
+{%  block navbar %}
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="{% url 'all:home' %}">Home</a></li>
+        <li><a href="{% url 'all:database' %}">Database</a></li>
+        <li><a href="{% url 'all:document' %}">Document</a></li>
+        <li class="active"><a href="{% url 'all:about' %}">About</a></li>
+    </ul>
+{% endblock %}
+
+{% block page_title %}
+    <div class="navbar-brand">About</div>
+{% endblock %}
+
+{% block first_row %}
+    <div class="jumbotron container" id="target2" onclick="$('#target2').toggle();">
+        <h1>Hello, welcome!</h1>
+        <p >This page is dedicated to the people who have published papers and assisted in the creation of this site. If you
+        wish for your name to be included in this section please contact email@utoledo.edu Click anywhere to make me hide.</p>
+    </div>
+    <div class="container">
+        <div class="row" align="center">
+            {% load render_table from django_tables2 %}
+            <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+            {% render_table table %}
+        </div><!-- /.row -->
+    </div>
+{% endblock %}
