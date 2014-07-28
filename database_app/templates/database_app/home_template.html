@@ -19,9 +19,9 @@
     <div class="jumbotron container" id="target2" onclick="$('#target2').toggle();">
         <h1>Hello, welcome!</h1>
         <p >This is a database containing information on transition metal nitrides. This first page is created to allow you
-        to filter entries before viewing the database. Please select the itemsyou wish to view or click
+        to filter entries before viewing the database. Please select the items you wish to view or click
         <a class="btn btn-default" href="{% url 'all:database' %}">here</a> to go straight to the database. For more
-        information go to the about section located <a class="btn btn-default" href="{% url 'all:about' %}">here</a>. Click
+        information go to the documentation section located <a class="btn btn-default" href="{% url 'all:document' %}">here</a>. Click
         to make me hide.</p>
     </div>
     <div class="container">
@@ -30,6 +30,45 @@
                 <form action="{% url 'all:database' %}" method="get">
                     {% crispy form %}
                 </form>
+            </div>
+            <div class="col-lg-4">
+                <strong>Structure</strong><br>
+                This refers to the crystal structure that the transition metal was analysed in.<br>
+                <br><br><br>
+                <strong>Metal</strong><br>
+                This refers to the transition metal that is used in the nitrate.<br>
+                <br><br><br>
+                <strong>Pugh's ratio</strong><br>
+                Pugh's ratio (k) as k=G/B (B = Bulk Modulus and G = Hill's arithmetic mean) The units for Pugh's ratio are GPa.<br>
+                <br><br><br><br>
+                <strong>Vickers Hardness</strong><br>
+                An estimation of Vickers Hardness with the units in GPa.<br>
+                <br><br><br><br><br>
+                <strong>Lattice Constant</strong><br>
+                The lattice constant refers to the physical dimensions of a crystal lattice. For cubic structures there is only one value. The units for Lattice constant are in angstroms.<br>
+                <br><br><br>
+                <strong>Bulk Modulus</strong><br>
+                Bulk modulus is a substance's resistance to uniform compression. Units are given in GPa.<br>
+                <br><br><br><br><br>
+                <strong>Cauchy Pressure</strong><br>
+                Cauchy Pressure Pc = C12-C44
+                <br><br><br><br><br><br><br>
+                <strong>Poissons Ratio</strong><br>
+                Poissons ratio is the negitave ratio of transverse to axial strain. No units.<br>
+                <br><br><br>
+                <strong>Experimental</strong><br>
+                This field defines whether the result is an experimental or computational result.<br>
+                <strong>Stable</strong><br>
+                If the structure is stable this field will be true.<br>
+                <br>
+                <strong>Method</strong><br>
+                This shows whether pseudo potential or PAW was used for the calculation.<br>
+                <br><br>
+                <strong>Potential</strong><br>
+                This shows what method of approximation was used in density functional theory. Local Density Approximation, General Gradient Approximation, etc.<br>
+                <br><br>
+                <strong>Reference DOI</strong><br>
+                This is the reference DOI of the paper that the results were obtained from.<br>
             </div>
         </div><!-- /.row -->
     </div>

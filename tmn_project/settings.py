@@ -77,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tmn_database',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'j0hn76438',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

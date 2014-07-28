@@ -10,7 +10,6 @@ def home(request):
 
 
 def database(request):
-    test = ''
     return_queryset = tmn.objects.all()
     try:
         if len(request.GET.getlist('Structure')) > 0:
@@ -25,12 +24,12 @@ def database(request):
 
     try:
         if len(request.GET.get('Pughs_ratio_less_than')) > 0:
-            return_queryset = return_queryset.filter(k__lt=request.GET.get('Pughs_ratio_less_than'))
+            return_queryset = return_queryset.filter(Pughs_Ratio__lt=request.GET.get('Pughs_ratio_less_than'))
     except TypeError:
         pass
     try:
         if len(request.GET.get('Pughs_ratio_greater_than')) > 0:
-            return_queryset = return_queryset.filter(k__gt=request.GET.get('Pughs_ratio_greater_than'))
+            return_queryset = return_queryset.filter(Pughs_Ratio__gt=request.GET.get('Pughs_ratio_greater_than'))
     except TypeError:
         pass
 
@@ -84,13 +83,13 @@ def database(request):
 
     try:
         if len(request.GET.get('Poissons_ratio_less_than')) > 0:
-            return_queryset = return_queryset.filter(nu__lt=request.GET.get('Poissons_ratio_less_than'))
+            return_queryset = return_queryset.filter(Poissons_Ratio__lt=request.GET.get('Poissons_ratio_less_than'))
     except TypeError:
         pass
 
     try:
         if len(request.GET.get('Poissons_ratio_greater_than')) > 0:
-            return_queryset = return_queryset.filter(nu__gt=request.GET.get('Poissons_ratio_greater_than'))
+            return_queryset = return_queryset.filter(Poissons_Ratio__gt=request.GET.get('Poissons_ratio_greater_than'))
     except TypeError:
         pass
 
@@ -127,7 +126,7 @@ def database(request):
     table = tmntable(return_queryset)
     RequestConfig(request).configure(table)
     table.paginate(page=request.GET.get('page', 1), per_page=100)
-    return render(request, 'database_app/database_template.html', {'table': table, 'test': test, 'form': FilterForm()})
+    return render(request, 'database_app/database_template.html', {'table': table, 'form': FilterForm()})
 
 
 def document(request):

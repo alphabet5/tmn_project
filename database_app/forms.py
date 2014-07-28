@@ -52,9 +52,9 @@ class FilterForm(forms.Form):
         choices=(('LDA', 'LDA'), ('GGA', 'GGA'), ('LSDA', 'LSDA'))
     )
 
-    Show_Fields = forms.MultipleChoiceField(
-        choices=(('Structure', 'Structure'), ('Metal', 'Metal'), ('Experimental', 'Experimental'), ('Pughs_Ratio', 'Pughs_Ratio'), ('Hardness', 'Hardness'), ('Lattice_Constant', 'Lattice_Constant'), ('Elastic_Constants', 'Elastic_Constants'), ('DOI', 'DOI'),)
-    )
+    # Show_Fields = forms.MultipleChoiceField(
+    #     choices=(('Structure', 'Structure'), ('Metal', 'Metal'), ('Experimental', 'Experimental'), ('Pughs_Ratio', 'Pughs_Ratio'), ('Hardness', 'Hardness'), ('Lattice_Constant', 'Lattice_Constant'), ('Elastic_Constants', 'Elastic_Constants'), ('DOI', 'DOI'),)
+    # )
 
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
@@ -79,7 +79,7 @@ class FilterForm(forms.Form):
         'Method',
         'Potential',
         Field('Reference_DOI', css_class='input-xlarge',),
-        'Show_Fields',
+        # 'Show_Fields',
         FormActions(
             Submit(type='submit', value='Submit', action='../database/', name='submit', css_class="btn-primary"),
         )

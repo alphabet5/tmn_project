@@ -16,10 +16,11 @@ class tmntable(tables.Table):
     # St = tables.TemplateColumn('{{record.Stable}}', order_by='Stable')
     # WF = tables.TemplateColumn('{{record.Wave_function}}', order_by='Wave_function')
     # Code_Pack = tables.TemplateColumn('{{record.Code_Package}}', order_by='Code_Package')
+    Data_Gatherer = tables.TemplateColumn('{{record.data_gatherer.Name}}')
     class Meta:
         model = tmn
         attrs = {"class": "paleblue"}
-        exclude = ('Reference_DOI', 'ID', 'Verified', )
+        exclude = ('Reference_DOI', 'ID', 'data_gatherer')
 
 
 class ContribTable(tables.Table):
